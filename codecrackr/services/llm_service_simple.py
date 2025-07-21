@@ -310,3 +310,13 @@ Make it comprehensive but accessible to developers at different skill levels."""
     def count_tokens(self, text: str) -> int:
         """Count tokens in text (rough estimate)"""
         return len(text.split()) * 1.3
+
+    # Compatibility helpers for TutorialGenerator
+    def generate_project_summary(self, repo_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Return repository summary using existing method."""
+        return self.generate_repository_summary(repo_data, [])
+
+    def generate_architecture_overview(self, repo_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Return architecture overview in a dictionary form."""
+        diagram = self.generate_architecture_diagram(repo_data)
+        return {"architecture": diagram}

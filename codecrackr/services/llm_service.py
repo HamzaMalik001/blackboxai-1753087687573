@@ -310,3 +310,20 @@ Make it comprehensive but accessible to developers at different skill levels."""
     def count_tokens(self, text: str) -> int:
         """Count tokens in text (rough estimate)"""
         return len(text.split()) * 1.3
+
+    # Added convenience wrappers used by TutorialGenerator
+    def generate_project_summary(self, repo_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Generate a summary of the repository using existing summary call"""
+        # TutorialGenerator previously expected this method.  We simply forward
+        # to ``generate_repository_summary`` without any file analyses.
+        return self.generate_repository_summary(repo_data, [])
+
+    def generate_architecture_overview(self, repo_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Generate architecture overview data.
+
+        Currently ``LLMService`` only creates a Mermaid diagram string.  To keep
+        compatibility with callers expecting a dictionary, we wrap the diagram
+        in a dictionary under the ``architecture`` key.
+        """
+        diagram = self.generate_architecture_diagram(repo_data)
+        return {"architecture": diagram}
