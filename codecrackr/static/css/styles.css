@@ -1,0 +1,297 @@
+/* Custom styles for CodeCrackr */
+
+/* Font families */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-mono {
+    font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Loading animations */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Code blocks styling */
+.prose pre {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.prose code {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+}
+
+.prose pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+/* File tree styling */
+.file-tree {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.file-tree .directory {
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+.file-tree .file {
+    color: #6b7280;
+}
+
+/* Progress bar animation */
+.progress-bar {
+    transition: width 0.3s ease-in-out;
+}
+
+/* Hover effects */
+.hover-lift {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Collapsible sections */
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.collapsible-content.expanded {
+    max-height: 1000px;
+}
+
+/* Syntax highlighting for code blocks */
+.hljs {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+.hljs-keyword {
+    color: #f472b6;
+}
+
+.hljs-string {
+    color: #34d399;
+}
+
+.hljs-number {
+    color: #fbbf24;
+}
+
+.hljs-comment {
+    color: #94a3b8;
+}
+
+.hljs-function {
+    color: #60a5fa;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .prose {
+        font-size: 0.875rem;
+    }
+    
+    .prose pre {
+        font-size: 0.75rem;
+    }
+}
+
+/* Custom button styles */
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    transform: translateY(-1px);
+}
+
+/* Card styles */
+.card {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Status indicators */
+.status-success {
+    color: #10b981;
+    background-color: #d1fae5;
+}
+
+.status-warning {
+    color: #f59e0b;
+    background-color: #fef3c7;
+}
+
+.status-error {
+    color: #ef4444;
+    background-color: #fee2e2;
+}
+
+.status-info {
+    color: #3b82f6;
+    background-color: #dbeafe;
+}
+
+/* File type icons */
+.file-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.file-icon.python {
+    color: #3776ab;
+}
+
+.file-icon.javascript {
+    color: #f7df1e;
+}
+
+.file-icon.typescript {
+    color: #3178c6;
+}
+
+.file-icon.java {
+    color: #ed8b00;
+}
+
+.file-icon.cpp {
+    color: #00599c;
+}
+
+/* Loading spinner */
+.spinner {
+    border: 2px solid #f3f4f6;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #1f2937;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.875rem;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+    }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+    .prose {
+        color: #e5e7eb;
+    }
+    
+    .prose h1, .prose h2, .prose h3, .prose h4 {
+        color: #f9fafb;
+    }
+    
+    .prose code {
+        background-color: #374151;
+        color: #f9fafb;
+    }
+}
