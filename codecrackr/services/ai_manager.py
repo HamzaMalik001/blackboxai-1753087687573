@@ -20,12 +20,17 @@ class AIManager:
     
     def load_providers(self):
         """Load all available AI providers"""
-        # Load providers from environment variables
-        self.providers = {
-            "openai": OpenAIProvider(self.config.OPENAI_API_KEY),
-            "gemini": GeminiProvider(self.config.GEMINI_API_KEY),
-            "openrouter": OpenRouterProvider(self.config.OPENROUTER_API_KEY)
-        }
+        # Load providers only when API keys are available
+        self.providers = {}
+
+        if self.config.OPENAI_API_KEY:
+            self.providers["openai"] = OpenAIProvider(self.config.OPENAI_API_KEY)
+
+        if getattr(self.config, "GEMINI_API_KEY", None):
+            self.providers["gemini"] = GeminiProvider(self.config.GEMINI_API_KEY)
+
+        if self.config.OPENROUTER_API_KEY:
+            self.providers["openrouter"] = OpenRouterProvider(self.config.OPENROUTER_API_KEY)
     
     def get_available_providers(self) -> List[str]:
         """Get list of available providers"""
