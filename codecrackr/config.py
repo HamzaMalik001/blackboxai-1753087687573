@@ -8,9 +8,14 @@ class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
     FLASK_ENV = os.getenv('FLASK_ENV', 'development')
     DEBUG = os.getenv('FLASK_DEBUG', 'True').lower() == 'true'
+
+    # Admin credentials
+    ADMIN_USERNAME = os.getenv('ADMIN_USERNAME', 'admin')
+    ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD', 'password')
     
     # API Keys
     OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+    GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
     OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
     GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
     

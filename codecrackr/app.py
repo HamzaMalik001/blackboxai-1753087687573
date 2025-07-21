@@ -13,10 +13,12 @@ from services.llm_service import LLMService
 from services.tutorial_generator import TutorialGenerator
 from utils.cleanup import cleanup_temp_files
 from utils.github_utils import validate_github_url
+from admin import admin_bp
 
 app = Flask(__name__)
 app.config.from_object(Config)
 CORS(app)
+app.register_blueprint(admin_bp, url_prefix='/admin')
 
 # Initialize services
 repo_analyzer = RepoAnalyzer()

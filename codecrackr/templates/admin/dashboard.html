@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - CodeCrackr{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto py-12 px-4">
+    <h1 class="text-2xl font-bold mb-6">AI Provider Management</h1>
+    <form method="post" class="space-y-6">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Provider</th>
+                    <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Enabled</th>
+                    <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">API Key</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                {% for name, info in providers.items() %}
+                <tr>
+                    <td class="px-4 py-2">{{ info.name }}</td>
+                    <td class="px-4 py-2">{{ 'Yes' if info.enabled else 'No' }}</td>
+                    <td class="px-4 py-2">
+                        <input type="text" name="{{ name }}_key" value="{{ info.api_key or '' }}" class="w-full border rounded px-2 py-1" placeholder="Enter API key">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div>
+            <label class="block text-sm font-medium mb-1" for="active_provider">Active Provider</label>
+            <select name="active_provider" id="active_provider" class="w-full border rounded px-3 py-2">
+                <option value="" {% if not active_provider %}selected{% endif %}>Auto</option>
+                {% for name in providers.keys() %}
+                <option value="{{ name }}" {% if active_provider==name %}selected{% endif %}>{{ name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Save</button>
+    </form>
+</div>
+{% endblock %}
+
