@@ -1,0 +1,7 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/project/sandbox/user-workspace/codecrackr/app.py", line 15, in <module>
+    from utils.github_utils import validate_github_url
+  File "/project/sandbox/user-workspace/codecrackr/utils/github_utils.py", line 175, in <module>
+    def get_repo_tree(repo_info: Dict[str, str], recursive: bool = True) -> List[Dict[str, Any]]:
+NameError: name 'List' is not defined. Did you mean: 'list'?
