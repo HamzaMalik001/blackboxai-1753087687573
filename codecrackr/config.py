@@ -12,6 +12,7 @@ class Config:
     # API Keys
     OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
     OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
+    GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
     GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
     
     # Application Settings
