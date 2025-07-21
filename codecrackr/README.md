@@ -60,6 +60,11 @@ OPENAI_API_KEY=your_openai_api_key_here
 # OR
 OPENROUTER_API_KEY=your_openrouter_api_key_here
 
+# Optional: Keys for other LLM providers
+GEMINI_API_KEY=your_gemini_api_key_here
+CLAUDE_API_KEY=your_claude_api_key_here
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
+
 # Optional: For higher GitHub API limits
 GITHUB_TOKEN=your_github_token_here
 
