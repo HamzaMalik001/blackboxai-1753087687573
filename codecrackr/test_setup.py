@@ -176,4 +176,8 @@ def main():
         print("3. Open http://localhost:8000 in your browser")
     else:
         print("❌ Some tests failed. Please check the errors above.")
+
+
+if __name__ == "__main__":
+    main()
     
